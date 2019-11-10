@@ -1,0 +1,83 @@
+<nav class="z-depth-0">
+    <div class="nav-wrapper">
+        <span class="">Hola <span class="lime-text text-accent-2">{{nombreRescatado | uppercase}} </span>!! Bienvenido a <span class="lime-text text-accent-2">GITFIND</span></span>
+        <div class="right search ">
+
+            <form class="col s12" (ngSubmit)="buscarReposotorio()">
+                <input [(ngModel)]="buscar" name="buscar" (keyup.enter)="buscarReposotorio()" type="search" placeholder="Ingresa e nombre del repo" class="validate z-depth-2 ">
+                <button class="btn black z-depth-2" type="submit"><span  class="material-icons right">search</span></button>
+
+            </form>
+
+
+        </div>
+    </div>
+</nav>
+
+
+<div class="container ">
+    <div class="card result mt-5">
+        <div class="row">
+            <div class="col s9">
+                <div class="row galeria">
+
+                    <div class="col s6 " *ngFor="let repo of _rs.repository">
+                        <div class="card lime accent-1">
+                            <div class="card-content">
+                                <h5 class="title activator right-align">{{repo.name}} <i class="material-icons right">more_vert</i></h5>
+                                <hr>
+                                <p>{{repo.description}}</p>
+                                <p><b>Estrellas</b>: {{repo.stargazers_count}}</p>
+                            </div>
+                            <div class="card-action">
+                                <a class="waves-effect blue-grey darken-4 btn-small" [href]="[repo.html_url]" target="_blank"><span class="blue-text text-darken-2">Visitar repo</span></a>
+                                <i *ngIf="!isFavorito(repo)" class="material-icons right" (click)="clickFavorito(repo)">star_border</i>
+                                <i *ngIf="isFavorito(repo)" class="material-icons right" (click)="clickFavorito(repo)">star</i>
+                            </div>
+                            <div class="card-reveal">
+                                <div class="row">
+                                    <div class="col s2">
+                                        <img class="left-align" [src]="repo.owner.avatar_url" style="height: 50px; width: auto; border-radius: 50%;" alt="">
+                                    </div>
+                                    <div class="col s10">
+                                        <span class="card-title grey-text text-darken-4" style="font-size: 18px;">{{repo.name}}<i class="material-icons right">close</i></span>
+
+                                    </div>
+                                </div>
+                                <hr>
+                                <p><b>Creado por: </b>{{repo.owner.login}}</p>
+                                <p><b>Visto:</b> {{repo.watchers_count}}</p>
+                                <p><b>Último Push:</b> {{repo.pushed_at | date}}</p>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col s3">
+                <div class="favoritos">
+                    <div class="favoritos__title">
+                        <h4>Favoritos</h4>
+                    </div>
+                    <div class="favoritos__content">
+                        <div class="row">
+                            <div class="col s12 " *ngFor="let repo of getFavoritos()">
+                                <div class="card deep-purple lighten-1">
+                                    <div class="card-content white-text">
+
+                                        <p class="title">A {{nombreRescatado | uppercase}} le gusta.</p>
+                                    </div>
+                                    <div class="card-action center-align">
+                                        <a [href]="[repo.html_url]" target="_blank">{{repo.name}}</a>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

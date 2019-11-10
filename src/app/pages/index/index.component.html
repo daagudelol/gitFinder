@@ -1,0 +1,20 @@
+<app-header></app-header>
+<div class="home  row deep-purple lighten-5">
+    <div class="home-image col s6 valign-wrapper">
+        <img src="https://octodex.github.com/images/murakamicat.png" style="height:80vh" alt="Imagen Github">
+    </div>
+    <div class="home-search col s6 row">
+        <div class="col s10">
+            <h1>GitFinder</h1>
+            <p>Bienvenido a GitFinder. Para iniciar debe agregar su nombre y luego dar clic en Entrar
+            </p>
+        </div>
+        <div class="col s8">
+            <form class="" (ngSubmit)="guardarNombre(nombre.value)">
+                <input #nombre type="text" class="validate z-depth-2" placeholder="Ingrese su nombre">
+                <button class="btn black z-depth-2">Entrar</button>
+
+            </form>
+        </div>
+    </div>
+</div>

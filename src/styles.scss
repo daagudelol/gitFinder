@@ -1,1 +1,74 @@
 /* You can add global styles to this file, and also import other style files */
+
+nav {
+    & .nav-wrapper {
+        padding: 0 50px;
+        font-size: 20px;
+    }
+    form {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        margin-top: 15px;
+        input {
+            background: #FFF !important;
+            height: 36px !important;
+            box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.3) !important;
+            border-bottom: 0;
+            padding: 0 8px !important;
+        }
+    }
+    & .search {
+        width: 36%;
+    }
+}
+
+.home {
+    display: flex;
+    flex-direction: row;
+    height: 100vh;
+}
+
+h5 {
+    margin: 0rem;
+}
+
+.favoritos {
+    &__content {
+        .card-content {
+            padding: 8px;
+        }
+        .card-action {
+            padding: 8px;
+            a {
+                font-size: 13px;
+            }
+        }
+    }
+}
+
+.result {
+    margin-top: 60px;
+    padding-top: 20px;
+}
+
+.galeria {
+    .card-content {
+        min-height: 203px;
+        .title {
+            font-size: 18px;
+            font-weight: bold;
+        }
+    }
+    & .card-reveal {
+        & .title {
+            font-size: 18px;
+            font-weight: bold;
+        }
+    }
+}
+
+.list-item {
+    width: 300px;
+}
